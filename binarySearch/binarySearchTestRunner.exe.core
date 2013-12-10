@@ -1,0 +1,20 @@
+[main] binarySearchTestRunner 1000 (0) exception: trapped!
+[main] binarySearchTestRunner 1000 (0) exception: code 0xC0000005 at 0x40141E
+[main] binarySearchTestRunner 1000 (0) exception: ax 0x0 bx 0x244FDB0 cx 0x2 dx 0xFFFFFFFC
+[main] binarySearchTestRunner 1000 (0) exception: si 0x0 di 0x0 bp 0x244FD90 sp 0x244FD60
+[main] binarySearchTestRunner 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] binarySearchTestRunner 1000 (0) stack: Stack trace:
+[main] binarySearchTestRunner 1000 (0) stack: frame 0: sp = 0x244F900, pc = 0x6100A2C3
+[main] binarySearchTestRunner 1000 (0) stack: frame 1: sp = 0x244F93C, pc = 0x7782B499
+[main] binarySearchTestRunner 1000 (0) stack: frame 2: sp = 0x244F960, pc = 0x7782B46B
+[main] binarySearchTestRunner 1000 (0) stack: frame 3: sp = 0x244FA10, pc = 0x777E0133
+[main] binarySearchTestRunner 1000 (0) stack: frame 4: sp = 0x244FD90, pc = 0x401255
+[main] binarySearchTestRunner 1000 (0) stack: frame 5: sp = 0x244FD98, pc = 0x61004402
+[main] binarySearchTestRunner 1000 (0) stack: frame 6: sp = 0x244FF50, pc = 0x61004420
+[main] binarySearchTestRunner 1000 (0) stack: frame 7: sp = 0x244FF5C, pc = 0x40170E
+[main] binarySearchTestRunner 1000 (0) stack: frame 8: sp = 0x244FF6C, pc = 0x40103A
+[main] binarySearchTestRunner 1000 (0) stack: frame 9: sp = 0x244FF88, pc = 0x76A0336A
+[main] binarySearchTestRunner 1000 (0) stack: frame 10: sp = 0x244FF94, pc = 0x77809F72
+[main] binarySearchTestRunner 1000 (0) stack: frame 11: sp = 0x244FFD4, pc = 0x77809F45
+[main] binarySearchTestRunner 1000 (0) stack: frame 12: sp = 0x244FFEC, pc = 0x0
+[main] binarySearchTestRunner 1000 (0) stack: End of stack trace
