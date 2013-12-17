@@ -76,3 +76,14 @@ int delete_node(DLL *List, int index){
         List->size--;
         return 1;
 }
+int traverse(DLL *List, void *element){
+        int i,index = 0; Node *temp = List->head;
+        for (i = 0; temp->next != NULL ; ++i){
+                if(temp->data == element)
+                        break;
+                temp = temp->next;
+        }
+        if(i != List->size)
+                return i;
+        return -1;
+}

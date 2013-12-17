@@ -12,3 +12,4 @@ DLL* create_link_list();
 Node* create_Node(void* prev_add,void *data,void* next_add);
 int insert_new_node(DLL* List,int index,void *element);
 int delete_node(DLL* List,int index);
+int traverse(DLL* List,void *element);

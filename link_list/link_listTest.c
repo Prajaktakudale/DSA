@@ -85,3 +85,11 @@ void test_for_delete_last_node(){
         ASSERT(2 == list->size);
         ASSERT(NULL == list->head->next->next);
 }
+void test_for_find_node_by_using_index(){
+        DLL* list = create_link_list();
+        int num1 = 1,num2 = 2,num3 = 2;
+        insert_new_node(list,0,&num1);
+        insert_new_node(list,1,&num2);
+        insert_new_node(list,2,&num3);
+        ASSERT(2 == traverse(list,&num3));
+}
