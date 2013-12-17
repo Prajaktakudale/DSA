@@ -1,0 +1,20 @@
+[main] stack_without_memcpyTestRunner 1000 (0) exception: trapped!
+[main] stack_without_memcpyTestRunner 1000 (0) exception: code 0xC0000005 at 0x401AF9
+[main] stack_without_memcpyTestRunner 1000 (0) exception: ax 0x0 bx 0x244FDC0 cx 0x2 dx 0x28
+[main] stack_without_memcpyTestRunner 1000 (0) exception: si 0x0 di 0x0 bp 0x244FDA0 sp 0x244FD90
+[main] stack_without_memcpyTestRunner 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] stack_without_memcpyTestRunner 1000 (0) stack: Stack trace:
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 0: sp = 0x244F930, pc = 0x6100A2C3
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 1: sp = 0x244F96C, pc = 0x76F5B499
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 2: sp = 0x244F990, pc = 0x76F5B46B
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 3: sp = 0x244FA40, pc = 0x76F10133
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 4: sp = 0x244FDA0, pc = 0x401752
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 5: sp = 0x244FDA8, pc = 0x61004402
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 6: sp = 0x244FF50, pc = 0x61004420
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 7: sp = 0x244FF5C, pc = 0x402E7E
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 8: sp = 0x244FF6C, pc = 0x40103A
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 9: sp = 0x244FF88, pc = 0x749B336A
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 10: sp = 0x244FF94, pc = 0x76F39F72
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 11: sp = 0x244FFD4, pc = 0x76F39F45
+[main] stack_without_memcpyTestRunner 1000 (0) stack: frame 12: sp = 0x244FFEC, pc = 0x0
+[main] stack_without_memcpyTestRunner 1000 (0) stack: End of stack trace
