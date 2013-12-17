@@ -15,13 +15,13 @@ Stack* create_stack(int size){
     return p_to_stack;
 };
 
-int isEmpty(Stack* p_to_stack){
+int is_empty(Stack* p_to_stack){
     return p_to_stack->top == 0;
 };
 
 void* top(Stack* p_to_stack){
     void* top;
-    if(isEmpty(p_to_stack)) 
+    if(is_empty(p_to_stack)) 
     	return NULL;
     top = *(p_to_stack->base_element + p_to_stack->top-1);
     return top;
@@ -41,4 +41,13 @@ int push(Stack* p_to_stack,void* element){
     *(p_to_stack->base_element+p_to_stack->top) = element;
     p_to_stack->top++;
     return 1;
+};
+
+void* pop(Stack* p_to_stack){
+    void *pop_element;
+    pop_element = top(p_to_stack);
+    if(is_empty(p_to_stack)) 
+    	return NULL;
+    p_to_stack->top--;
+    return pop_element;
 };

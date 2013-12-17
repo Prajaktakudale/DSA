@@ -7,5 +7,6 @@ typedef struct {
 Stack* create_stack(int size);
 void* top(Stack* stack);
 void dispose();
-int isEmpty(Stack* stack);
+int is_empty(Stack* stack);
 int push(Stack* stack,void* element);
+void* pop(Stack* stack);
