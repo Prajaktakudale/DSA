@@ -26,3 +26,19 @@ void* top(Stack* p_to_stack){
     top = *(p_to_stack->base_element + p_to_stack->top-1);
     return top;
 };
+
+int isFull(Stack* p_to_stack){
+    return p_to_stack->top == p_to_stack->size;
+};
+
+int push(Stack* p_to_stack,void* element){
+	int temp;
+	temp = p_to_stack->size*sizeof(void*);
+    if(isFull(p_to_stack)){
+        p_to_stack->size = p_to_stack->size*2;
+        p_to_stack->base_element = realloc(p_to_stack->base_element,temp);
+    }
+    *(p_to_stack->base_element+p_to_stack->top) = element;
+    p_to_stack->top++;
+    return 1;
+};
