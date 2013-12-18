@@ -95,3 +95,15 @@ void test_gives_the_top_most_element_from_the_stack_integers(){
     push(start, &element);
     ASSERT(element == *(int*)top(start));
 };
+
+typedef struct{
+        int emp_id,contact_no;
+} emp_contact;
+
+void test_push_struct_into_stack(){
+    emp_contact data[2] = {{1,679876543},{2,450987650}};
+    push(start, data);
+    ASSERT(NULL == start->head->next);
+    pop(start);
+    ASSERT(0 == start->size);
+}
