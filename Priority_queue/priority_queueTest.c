@@ -96,4 +96,20 @@ void test_for_enqueue_elements_which_has_different_priority(){
         ASSERT(areElementsEqual(*element2, *(Qelement*)queue->head->data));
         result = result->next;
 }
-
+void test_for_removes_starting_element_of_the_queue(){
+        Node* result;
+        int * num = malloc(sizeof(int)*2);
+        Qelement* element1 = create_element(&num[0], 2);
+        Qelement* element2 = create_element(&num[1], 3);
+        Qelement* element3 = create_element(&num[2], 2);
+        Qelement* element4 = create_element(&num[2], 4);
+        num[0] = 1;num[1] = 2;num[2] = 3;
+        queue = create_queue();
+        enqueue(queue, element1);
+        enqueue(queue, element3);
+        enqueue(queue, element2);
+        dequeue(queue);
+        result = queue->head->next;
+        ASSERT(areElementsEqual(*element3, *(Qelement*)queue->head->data));
+        ASSERT(areElementsEqual(*element2, *(Qelement*)result->data));
+}

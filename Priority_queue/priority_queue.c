@@ -4,7 +4,7 @@
 P_queue* create_queue(){
         P_queue* queue = calloc(1, sizeof(P_queue));
         return queue;
-}
+};
 
 int enqueue(P_queue *queue, Qelement *element){
         int i = 1;
@@ -24,4 +24,7 @@ int enqueue(P_queue *queue, Qelement *element){
                 i++;
         }
         return insert_new_node(queue,i,element);
-}
+};
+int dequeue(P_queue* queue){
+        return delete_node(queue,0);
+};

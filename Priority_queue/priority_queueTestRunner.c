@@ -59,9 +59,9 @@ int main(){
 		test_for_add_element_at_the_starting_of_queue();
 	tearDown();
 	testEnded();
-	testStarted("test_for_add_element_which_have_lower_priority");
+	testStarted("test_for_add_element_which_have_lower_priority_for_int");
 	setup();
-		test_for_add_element_which_have_lower_priority();
+		test_for_add_element_which_have_lower_priority_for_int();
 	tearDown();
 	testEnded();
 	testStarted("test_for_add_double_element_to_the_queue");
