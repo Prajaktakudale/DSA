@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include "testUtils.h"
 #include "priority_queue.h"
+#include "./need/link_list.h"
 
 
-P_queue* queue;
+void* queue;
 int areElementsEqual(Qelement expected, Qelement actual){
         return expected.data == actual.data && 
         expected.priority == actual.priority;
@@ -18,8 +19,8 @@ Qelement* create_element(void* data,int priority){
 
 void test_for_creates_a_new_queue(){
         queue = create_queue();
-        ASSERT(queue->head == NULL);
-        ASSERT(0 == queue->size);
+        ASSERT(((DLL*)queue)->head == NULL);
+        ASSERT(0 == ((DLL*)queue)->size);
 }
 void test_for_add_element_at_the_starting_of_queue(){
         int * num = calloc(1,sizeof(int));
@@ -27,7 +28,7 @@ void test_for_add_element_at_the_starting_of_queue(){
         *num = 1;
         queue = create_queue();
         enqueue(queue, element);
-        ASSERT(areElementsEqual(*element,*(Qelement*)queue->head->data));
+        ASSERT(areElementsEqual(*element,*(Qelement*)((DLL*)queue)->head->data));
 }
 //================================Integer==================================
 
@@ -43,8 +44,8 @@ void test_for_add_element_which_have_lower_priority_for_int(){
         enqueue(queue, element1);
         enqueue(queue, element2);
         enqueue(queue, element3);
-        ASSERT(areElementsEqual(*element1, *(Qelement*)queue->head->data));
-        ASSERT(areElementsEqual(*element2, *(Qelement*)queue->head->next->data));
+        ASSERT(areElementsEqual(*element1, *(Qelement*)((DLL*)queue)->head->data));
+        ASSERT(areElementsEqual(*element2, *(Qelement*)((DLL*)queue)->head->next->data));
 }
 //================================double==================================
 
@@ -61,8 +62,8 @@ void test_for_add_double_element_to_the_queue(){
         enqueue(queue, element1);
         enqueue(queue, element3);
         enqueue(queue, element2);
-        result = queue->head->next;
-        ASSERT(areElementsEqual(*element1, *(Qelement*)queue->head->data));
+        result = ((DLL*)queue)->head->next;
+        ASSERT(areElementsEqual(*element1, *(Qelement*)((DLL*)queue)->head->data));
         ASSERT(areElementsEqual(*element3, *(Qelement*)result->data));
         result = result->next;
         ASSERT(areElementsEqual(*element2, *(Qelement*)result->data));
@@ -79,7 +80,7 @@ void test_for_add_char_element_to_the_queue(){
         queue = create_queue();
         enqueue(queue, element1);
         enqueue(queue, element2);
-        ASSERT(areElementsEqual(*element1, *(Qelement*)queue->head->data));
+        ASSERT(areElementsEqual(*element1, *(Qelement*)((DLL*)queue)->head->data));
 }
 
 void test_for_enqueue_elements_which_has_different_priority(){
@@ -92,8 +93,8 @@ void test_for_enqueue_elements_which_has_different_priority(){
         queue = create_queue();
         enqueue(queue, element2);
         enqueue(queue, element1);
-        result = queue->head->next;
-        ASSERT(areElementsEqual(*element2, *(Qelement*)queue->head->data));
+        result = ((DLL*)queue)->head->next;
+        ASSERT(areElementsEqual(*element2, *(Qelement*)((DLL*)queue)->head->data));
         result = result->next;
 }
 void test_for_removes_starting_element_of_the_queue(){
@@ -109,7 +110,7 @@ void test_for_removes_starting_element_of_the_queue(){
         enqueue(queue, element3);
         enqueue(queue, element2);
         dequeue(queue);
-        result = queue->head->next;
-        ASSERT(areElementsEqual(*element3, *(Qelement*)queue->head->data));
+        result = ((DLL*)queue)->head->next;
+        ASSERT(areElementsEqual(*element3, *(Qelement*)((DLL*)queue)->head->data));
         ASSERT(areElementsEqual(*element2, *(Qelement*)result->data));
 }
