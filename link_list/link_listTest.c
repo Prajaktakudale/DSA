@@ -37,8 +37,8 @@ void test_for_add_data_to_end_of_link_list(){
 void test_for_add_data_in_between_list(){
         DLL* list = create_link_list();
         Node *second;
-        int num0 = 1,num2 = 2;
-        insert_new_node(list,0,&num0);
+        int num1 = 1,num2 = 2;
+        insert_new_node(list,0,&num1);
         insert_new_node(list,1,&num2);
         second = list->head->next;
         ASSERT(1 == *(int*)list->head->data);
