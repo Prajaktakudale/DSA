@@ -22,7 +22,8 @@ void test_for_add_data_to_empty_list(){
         ASSERT(1 == *(int*)list->head->data);
         ASSERT(list->size == 1);
 }
-void test_for_add_data_to_end_of_link_list(){
+//==============================Integer====================================
+void test_for_add_int_data_to_end_of_link_list(){
         DLL* list = create_link_list();
         Node *second;
         int num1 = 1,num2 = 2;
@@ -31,6 +32,32 @@ void test_for_add_data_to_end_of_link_list(){
         second = list->head->next;
         ASSERT(1 == *(int*)list->head->data);
         ASSERT(2 == *(int*)second->data);
+        ASSERT(list->size == 2);
+        ASSERT(list->head == second->prev);
+}
+//==============================Double====================================
+void test_for_add_double_data_to_end_of_link_list(){
+        DLL* list = create_link_list();
+        Node *second;
+        double num1 = 1.1,num2 = 2.2;
+        insert_new_node(list, 0, &num1);
+        insert_new_node(list, 1, &num2);
+        second = list->head->next;
+        ASSERT(1.1 == *(double*)list->head->data);
+        ASSERT(2.2 == *(double*)second->data);
+        ASSERT(list->size == 2);
+        ASSERT(list->head == second->prev);
+}
+//==============================Character====================================
+void test_for_add_char_data_to_end_of_link_list(){
+        DLL* list = create_link_list();
+        Node *second;
+        char num1 = 'p',num2 = 'k';
+        insert_new_node(list, 0, &num1);
+        insert_new_node(list, 1, &num2);
+        second = list->head->next;
+        ASSERT('p' == *(char*)list->head->data);
+        ASSERT('k' == *(char*)second->data);
         ASSERT(list->size == 2);
         ASSERT(list->head == second->prev);
 }
