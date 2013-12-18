@@ -6,7 +6,7 @@ typedef struct{
 
 typedef struct p{
         char p_name[256];
-        int p_ime;
+        int p_time;
         Status pStatus;
         int p_priority;
         struct p *next;
@@ -14,8 +14,9 @@ typedef struct p{
 
 typedef struct{
         P *head;
-        int length;
+        int size;
 } Queue;
 
 Queue* createNewProcess();
 int add_process(Queue *queue,P *process);
+int removeProcess(Queue *queue);

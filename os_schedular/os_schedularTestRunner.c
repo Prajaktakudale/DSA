@@ -69,6 +69,11 @@ int main(){
 		test_for_add_new_process_which_has_higher_priority_than_exsisting_process();
 	tearDown();
 	testEnded();
+	testStarted("test_for_remove_process_in_between");
+	setup();
+		test_for_remove_process_in_between();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
