@@ -52,6 +52,13 @@ void test_for_remove_process_between_two_processes(){
         add_process(queue, &pA);
         add_process(queue, &pB);
         add_process(queue, &pC);
-        ASSERT(2 == removeProcess(queue));
+        ASSERT(2 == remove_process(queue));
         ASSERT(queue->head->next == &pC);
+}
+void test_for_delete_first_process_from_schedular(){
+        Status statusp1 = {0,1,0};
+        P pA = {"p1",0,statusp1,5,NULL};
+        queue = createNewProcess();
+        add_process(queue, &pA);
+        ASSERT(0 == remove_process(queue));
 }

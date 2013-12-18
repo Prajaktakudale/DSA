@@ -19,4 +19,4 @@ typedef struct{
 
 Queue* createNewProcess();
 int add_process(Queue *queue,P *process);
-int removeProcess(Queue *queue);
+int remove_process(Queue *queue);
