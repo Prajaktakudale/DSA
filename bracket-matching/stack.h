@@ -8,7 +8,7 @@ typedef struct{
 typedef char String[256];
 
 void dispose(Stack* stack);
-Stack* New(int elementSize,int size);
+Stack* create_stack(int elementSize,int size);
 int is_full(Stack* stack);
 int push(Stack *stack,void* element);
 int is_empty(Stack* stack);

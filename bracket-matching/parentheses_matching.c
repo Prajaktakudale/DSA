@@ -12,7 +12,7 @@ int par_math(String s){
 	Stack* stack;
 	int i;
 
-	stack = New(sizeof(char),strlen(s));
+	stack = create_stack(sizeof(char),strlen(s));
 	for (i = 0; i < strlen(s);i++)
 	{
 		if (s[i]=='(' || s[i]=='[' || s[i]=='{')
