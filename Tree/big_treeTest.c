@@ -8,9 +8,33 @@ int compare_int(void *num1,void *num2){
 int compare_float(void *num1,void *num2){
         return *(float*)num1 - *(float*)num2;
 }
+int compare_double(void *num1,void *num2){
+        return *(double*)num1 - *(double*)num2;
+}
+int compare_char(void *num1,void *num2){
+        return *(char*)num1 - *(char*)num2;
+}
 void test_for_inserting_root_node(){
         Tree tree = createTree(compare_int);
         int node_data = 1;
+        int res = insert_node(&tree, NULL, &node_data);
+        ASSERT(1 == res);
+}
+void test_for_inserting_root_node_for_float(){
+        Tree tree = createTree(compare_float);
+        float node_data = 1.0f;
+        int res = insert_node(&tree, NULL, &node_data);
+        ASSERT(1 == res);
+}
+void test_for_inserting_root_node_for_double(){
+        Tree tree = createTree(compare_float);
+        double node_data = 1.0;
+        int res = insert_node(&tree, NULL, &node_data);
+        ASSERT(1 == res);
+}
+void test_for_inserting_root_node_for_char(){
+        Tree tree = createTree(compare_char);
+        char node_data = 'p';
         int res = insert_node(&tree, NULL, &node_data);
         ASSERT(1 == res);
 }
@@ -24,6 +48,16 @@ void test_for_insert_child_node_under_parent_node(){
         res = get_children(&tree, &node_data[1]);
         ASSERT(3 == *(int*)res.next(&res));
 }
+// void test_for_insert_child_node_under_parent_node_of_float_datatype(){
+//         Tree tree = createTree(compare_float);
+//         float node_data[] = {1.0f,2.0f,3.0f};
+//         Iterator res;
+//         insert_node(&tree, NULL, &node_data[0]);
+//         insert_node(&tree, &node_data[0], &node_data[1]);
+//         insert_node(&tree, &node_data[1], &node_data[2]);
+//         res = get_children(&tree, &node_data[1]);
+//         ASSERT(3.0 == *(int*)res.next(&res));
+// }
 void test_for_inserting_nodes_at_different_level(){
         Tree tree = createTree(compare_int);
         Iterator it;
