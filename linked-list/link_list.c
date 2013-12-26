@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "link_list.h"
+# include "iterator.h"
 
 Node* create_Node(void *prev_add,void *data,void *next_add){
         Node *element = calloc(1,sizeof(Node));
@@ -14,6 +15,7 @@ DLL* create_link_list(){
         List->size = 0;
         return List;
 }
+
 int insert_new_node(DLL *List, int index, void *element){
         int i;
         Node *temp,*prev_node,*next_node,*new_node;
@@ -78,7 +80,7 @@ int delete_node(DLL *List, int index){
 }
 int traverse(DLL *List, void *element){
         int i,index = 0; Node *temp = List->head;
-        for (i = 0; temp->next != NULL ; ++i){
+        for (i = 0; temp->next != '\0' ; ++i){
                 if(temp->data == element)
                         break;
                 temp = temp->next;
@@ -86,4 +88,33 @@ int traverse(DLL *List, void *element){
         if(i != List->size)
                 return i;
         return -1;
+}
+
+int hasNext_list(Iterator *it){
+        DLL *dList;
+        dList = (DLL*)it->list;
+        if(it->position == dList->size)
+                return 0;
+        return 1;
+}
+void* next_list(Iterator *it){
+        int i = 0;
+        DLL *dList;
+        Node *temp;
+        if(0 == hasNext_list(it)) 
+                return '\0';
+        dList = (DLL*)it->list;
+        temp = dList->head;
+        for(i = 0;i < it->position;i++)
+                temp = temp->next;
+        it->position++;
+        return temp->data;
+}
+Iterator getIterator(DLL *dList){
+        Iterator listIterator;
+        listIterator.list = dList;
+        listIterator.position = 0;
+        listIterator.hasNext = &hasNext_list;
+        listIterator.next = &next_list;
+        return listIterator;
 }
