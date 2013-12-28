@@ -82,6 +82,9 @@ void test_to_sort_the_elements_list_of_float_datatype_when_element_are_duplicate
         ASSERT(after_sorting[2] == *(float*)elements[2]);
 
 };
+
+//================================Double====================================
+
 void test_to_sort_the_elements_list_of_double_datatype(){
         double before_sorting[3] = {8.0,7.0,4.0};
         double after_sorting[3] = {4.0,7.0,8.0,};
@@ -92,6 +95,26 @@ void test_to_sort_the_elements_list_of_double_datatype(){
         ASSERT(after_sorting[2] == *(double*)elements[2]);
 
 };
+void test_to_sort_the_elements_list_of_double_datatype_when_list_is_already_sorted(){
+        double before_sorting[3] = {4.0,7.0,8.0};
+        double after_sorting[3] = {4.0,7.0,8.0,};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_doubles);
+        ASSERT(after_sorting[0] == *(double*)elements[0]);
+        ASSERT(after_sorting[1] == *(double*)elements[1]);
+        ASSERT(after_sorting[2] == *(double*)elements[2]);
+
+};
+void test_to_sort_the_elements_list_of_double_datatype_when_element_are_duplicate(){
+        double before_sorting[3] = {7.0,7.0,4.0};
+        double after_sorting[3] = {4.0,7.0,7.0,};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_doubles);
+        ASSERT(after_sorting[0] == *(double*)elements[0]);
+        ASSERT(after_sorting[1] == *(double*)elements[1]);
+        ASSERT(after_sorting[2] == *(double*)elements[2]);
+
+};//==================
 void test_to_sort_the_elements_list_of_character_datatype(){
         char before_sorting[3] = {'d','c','b'};
         char after_sorting[3] = {'b','c','d'};
