@@ -114,7 +114,10 @@ void test_to_sort_the_elements_list_of_double_datatype_when_element_are_duplicat
         ASSERT(after_sorting[1] == *(double*)elements[1]);
         ASSERT(after_sorting[2] == *(double*)elements[2]);
 
-};//==================
+};
+
+//===============================Character====================================
+
 void test_to_sort_the_elements_list_of_character_datatype(){
         char before_sorting[3] = {'d','c','b'};
         char after_sorting[3] = {'b','c','d'};
@@ -125,8 +128,30 @@ void test_to_sort_the_elements_list_of_character_datatype(){
         ASSERT(after_sorting[2] == *(char*)elements[2]);
 
 };
+void test_to_sort_the_elements_list_of_char_datatype_when_list_is_already_sorted(){
+        char before_sorting[3] = {'b','c','d'};
+        char after_sorting[3] = {'b','c','d'};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_chars);
+        ASSERT(after_sorting[0] == *(char*)elements[0]);
+        ASSERT(after_sorting[1] == *(char*)elements[1]);
+        ASSERT(after_sorting[2] == *(char*)elements[2]);
+
+};
+void test_to_sort_the_elements_list_of_char_datatype_when_element_are_duplicate(){
+        char before_sorting[3] = {'d','c','c'};
+        char after_sorting[3] = {'c','c','d'};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_chars);
+        ASSERT(after_sorting[0] == *(char*)elements[0]);
+        ASSERT(after_sorting[1] == *(char*)elements[1]);
+        ASSERT(after_sorting[2] == *(char*)elements[2]);
+
+};
+
+//================================String=======================================
+
 void test_to_sort_the_elements_list_of_String_datatype(){
-        int length = 3,i;
         String before_sorting[3] = {"dddd","bbcc","ccff"};
         String after_sorting[3] = {"bbcc","ccff","dddd"};
         void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
@@ -134,4 +159,26 @@ void test_to_sort_the_elements_list_of_String_datatype(){
         ASSERT(0==strcmp(after_sorting[0],*(String*)elements[0]));
         ASSERT(0==strcmp(after_sorting[1],*(String*)elements[1]));
         ASSERT(0==strcmp(after_sorting[2],*(String*)elements[2]));
+};
+
+void test_to_sort_the_elements_list_of_string_datatype_when_list_is_already_sorted(){
+        String before_sorting[3] = {"bbcc","ccff","dddd"};
+        String after_sorting[3] = {"bbcc","ccff","dddd"};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_chars);
+        ASSERT(0==strcmp(after_sorting[0],*(String*)elements[0]));
+        ASSERT(0==strcmp(after_sorting[1],*(String*)elements[1]));
+        ASSERT(0==strcmp(after_sorting[2],*(String*)elements[2]));
+
+};
+
+void test_to_sort_the_elements_list_of_string_datatype_when_element_are_duplicate(){
+        String before_sorting[3] = {"dddd","bbcc","bbcc"};
+        String after_sorting[3] = {"bbcc","bbcc","dddd"};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_chars);
+        ASSERT(0==strcmp(after_sorting[0],*(String*)elements[0]));
+        ASSERT(0==strcmp(after_sorting[1],*(String*)elements[1]));
+        ASSERT(0==strcmp(after_sorting[2],*(String*)elements[2]));
+
 };
