@@ -3,6 +3,7 @@
 #include <string.h>
 #include "bubble_sort.h"
 
+typedef char String[256];
 int compare_ints(void* element1, void* element2){
         return *(int*)element1 - *(int*)element2;
 };
@@ -14,6 +15,9 @@ int compare_doubles(void* element1, void* element2){
 };
 int compare_chars(void* element1, void* element2){
         return *(char*)element1 - *(char*)element2;
+};
+int compare_Strings(void* element1, void* element2){
+        return *(String*)element1 - *(String*)element2;
 };
 void test_to_sort_the_elements_list_of_integers_datatype(){
         int length = 4,i;
