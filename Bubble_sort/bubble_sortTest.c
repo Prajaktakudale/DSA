@@ -12,6 +12,9 @@ int compare_floats(void* element1, void* element2){
 int compare_doubles(void* element1, void* element2){
         return *(double*)element1 - *(double*)element2;
 };
+int compare_chars(void* element1, void* element2){
+        return *(char*)element1 - *(char*)element2;
+};
 void test_to_sort_the_elements_list_of_integers_datatype(){
         int length = 4,i;
         int before_sorting[4] = {8,7,1,4};
@@ -38,4 +41,13 @@ void test_to_sort_the_elements_list_of_double_datatype(){
         bubble_sort(elements,4,compare_doubles);
         for(i=0;i<length;i++)
                 ASSERT(after_sorting[i] == *(double*)elements[i]);
+};
+void test_to_sort_the_elements_list_of_character_datatype(){
+        int length = 4,i;
+        char before_sorting[4] = {'d','c','b','a'};
+        char after_sorting[4] = {'a','b','c','d'};
+        void* elements[4] = {&before_sorting[0],&before_sorting[1],&before_sorting[2],&before_sorting[3]};
+        bubble_sort(elements,4,compare_chars);
+        for(i=0;i<length;i++)
+                ASSERT(after_sorting[i] == *(char*)elements[i]);
 };
