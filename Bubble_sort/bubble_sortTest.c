@@ -20,6 +20,7 @@ int compare_Strings(void* element1, void* element2){
         return strcmp(element1,element2);
 };
 //============================Integer====================================
+
 void test_to_sort_the_elements_list_of_integers_datatype(){
         int before_sorting[3] = {7,1,4};
         int after_sorting[3] = {1,4,7};
@@ -49,6 +50,9 @@ void test_to_sort_the_elements_list_of_int_datatype_when_element_are_duplicate()
         ASSERT(after_sorting[2] == *(int*)elements[2]);
 
 };
+
+//==============================Float====================================
+
 void test_to_sort_the_elements_list_of_float_datatype(){
         float before_sorting[3] = {8.0f,7.0f,4.0f};
         float after_sorting[3] = {4.0f,7.0f,8.0f};
@@ -57,6 +61,26 @@ void test_to_sort_the_elements_list_of_float_datatype(){
         ASSERT(after_sorting[0] == *(float*)elements[0]);
         ASSERT(after_sorting[1] == *(float*)elements[1]);
         ASSERT(after_sorting[2] == *(float*)elements[2]);
+};
+void test_to_sort_the_elements_list_of_float_datatype_when_list_is_already_sorted(){
+        float before_sorting[3] = {4.0f,7.0f,8.0f};
+        float after_sorting[3] = {4.0f,7.0f,8.0f};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_floats);
+        ASSERT(after_sorting[0] == *(float*)elements[0]);
+        ASSERT(after_sorting[1] == *(float*)elements[1]);
+        ASSERT(after_sorting[2] == *(float*)elements[2]);
+
+};
+void test_to_sort_the_elements_list_of_float_datatype_when_element_are_duplicate(){
+        float before_sorting[3] = {7.0f,7.0f,4.0f};
+        float after_sorting[3] = {4.0f,7.0f,7.0f};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_floats);
+        ASSERT(after_sorting[0] == *(float*)elements[0]);
+        ASSERT(after_sorting[1] == *(float*)elements[1]);
+        ASSERT(after_sorting[2] == *(float*)elements[2]);
+
 };
 void test_to_sort_the_elements_list_of_double_datatype(){
         double before_sorting[3] = {8.0,7.0,4.0};
