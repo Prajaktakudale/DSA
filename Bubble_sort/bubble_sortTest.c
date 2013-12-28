@@ -19,6 +19,7 @@ int compare_chars(void* element1, void* element2){
 int compare_Strings(void* element1, void* element2){
         return strcmp(element1,element2);
 };
+//============================Integer====================================
 void test_to_sort_the_elements_list_of_integers_datatype(){
         int before_sorting[3] = {7,1,4};
         int after_sorting[3] = {1,4,7};
@@ -27,6 +28,26 @@ void test_to_sort_the_elements_list_of_integers_datatype(){
         ASSERT(after_sorting[0] == *(int*)elements[0]);
         ASSERT(after_sorting[1] == *(int*)elements[1]);
         ASSERT(after_sorting[2] == *(int*)elements[2]);
+};
+void test_to_sort_the_elements_list_of_int_datatype_when_list_is_already_sorted(){
+        int before_sorting[3] = {1,2,3};
+        int after_sorting[3] = {1,2,3};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,4,compare_ints);
+        ASSERT(after_sorting[0] == *(int*)elements[0]);
+        ASSERT(after_sorting[1] == *(int*)elements[1]);
+        ASSERT(after_sorting[2] == *(int*)elements[2]);
+
+};
+void test_to_sort_the_elements_list_of_int_datatype_when_element_are_duplicate(){
+        int before_sorting[3] = {4,2,2};
+        int after_sorting[3] = {2,2,4};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        bubble_sort(elements,3,compare_ints);
+        ASSERT(after_sorting[0] == *(int*)elements[0]);
+        ASSERT(after_sorting[1] == *(int*)elements[1]);
+        ASSERT(after_sorting[2] == *(int*)elements[2]);
+
 };
 void test_to_sort_the_elements_list_of_float_datatype(){
         float before_sorting[3] = {8.0f,7.0f,4.0f};
