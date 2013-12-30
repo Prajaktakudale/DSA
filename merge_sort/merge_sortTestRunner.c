@@ -54,6 +54,16 @@ int main(){
 		test_to_sort_the_elements_list_of_integers_datatype();
 	tearDown();
 	testEnded();
+	testStarted("test_to_sort_the_elements_list_of_float_datatype");
+	setup();
+		test_to_sort_the_elements_list_of_float_datatype();
+	tearDown();
+	testEnded();
+	testStarted("test_to_sort_the_elements_list_of_double_datatype");
+	setup();
+		test_to_sort_the_elements_list_of_double_datatype();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

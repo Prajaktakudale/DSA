@@ -4,7 +4,7 @@
 void merge_elements(void** elements,void** left,void** right,int left_length,
 	       int right_length,compare com)
 {
-        int p, q, r;
+        int p, q, r = 0;
         for(p=0,q=0;p < left_length && q < right_length;r++){
                 if(com(left[p],right[p])){
                         elements[r] = left[p];
