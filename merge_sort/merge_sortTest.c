@@ -1,6 +1,8 @@
 #include "testUtils.h"
 #include "merge_sort.h"
+#include <string.h>
 
+typedef char String[256];
 int compare_int (void* element1, void* element2){
     return (*(int*)element1 < *(int*)element2);
 };
@@ -13,6 +15,10 @@ int compare_double( void* element1, void* element2){
 int compare_char( void* element1, void* element2){
     return (*(char*)element1 < *(char*)element2);
 };
+int compare_string(void* element1, void* element2){
+        return strcmp(*(String*)element1, *(String*)element2) < 1;
+};
+
 
 //==============================Integer====================================
 
@@ -62,4 +68,16 @@ void test_to_sort_the_elements_list_of_character_datatype(){
         ASSERT(after_sorting[1] == *(char*)elements[1]);
         ASSERT(after_sorting[2] == *(char*)elements[2]);
 
+};
+
+//================================String=======================================
+
+void test_to_sort_the_elements_list_of_String_datatype(){
+        String before_sorting[3] = {"dddd","bbcc","ccff"};
+        String after_sorting[3] = {"bbcc","ccff","dddd"};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        merge_sort(elements,3,sizeof(String),compare_string);
+        ASSERT(0==strcmp(after_sorting[0],*(String*)elements[0]));
+        ASSERT(0==strcmp(after_sorting[1],*(String*)elements[1]));
+        ASSERT(0==strcmp(after_sorting[2],*(String*)elements[2]));
 };
