@@ -9,7 +9,11 @@ int compare_float( void* element1, void* element2){
 };
 int compare_double( void* element1, void* element2){
     return (*(double*)element1 < *(double*)element2);
-}
+};
+int compare_char( void* element1, void* element2){
+    return (*(char*)element1 < *(char*)element2);
+};
+
 //==============================Integer====================================
 
 void test_to_sort_the_elements_list_of_integers_datatype(){
@@ -44,5 +48,18 @@ void test_to_sort_the_elements_list_of_double_datatype(){
         ASSERT(after_sorting[0] == *(double*)elements[0]);
         ASSERT(after_sorting[1] == *(double*)elements[1]);
         ASSERT(after_sorting[2] == *(double*)elements[2]);
+
+};
+
+//===============================Character====================================
+
+void test_to_sort_the_elements_list_of_character_datatype(){
+        char before_sorting[3] = {'d','c','b'};
+        char after_sorting[3] = {'b','c','d'};
+        void* elements[3] = {&before_sorting[0],&before_sorting[1],&before_sorting[2]};
+        merge_sort(elements,3,sizeof(char),compare_char);
+        ASSERT(after_sorting[0] == *(char*)elements[0]);
+        ASSERT(after_sorting[1] == *(char*)elements[1]);
+        ASSERT(after_sorting[2] == *(char*)elements[2]);
 
 };
