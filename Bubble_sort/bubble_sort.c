@@ -1,7 +1,7 @@
 #include "bubble_sort.h"
 #include <stdlib.h>
 #include <memory.h>
-void bubble_sort(void **elements,int number_of_elements,compareFunc compare){
+void bubble_ssort(void **elements,int number_of_elements,compareFunc compare){
     int i,j,result_compare;
     void *temp;
     for (i=1;i<number_of_elements;i++)
