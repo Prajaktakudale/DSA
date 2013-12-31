@@ -1,5 +1,6 @@
 #include "testUtils.h"
 #include "hash_map.h"
+#include "include/iterator.h"
 #include <string.h>
 
 int hashFun(void *key){
@@ -49,4 +50,15 @@ void test_for_remove_record_from_hashmap_when_record_is_not_present(){
         HashMap record = createHashMap(hashFun, compare_key);
         ASSERT(InsertRecordInHashMap(&record, &sugar.key, &sugar.value));
         ASSERT(0 == Remove_record_from_hashmap(&record, &rice.key));
+}
+void test_for_getting_all_keys_in_hash_map(){
+        HashMap table = createHashMap(hashFun,compare_key);
+        Iterator it;
+        ASSERT(InsertRecordInHashMap(&table,&salt.key,&salt.value));
+        ASSERT(InsertRecordInHashMap(&table,&rice.key,&rice.value));
+        ASSERT(InsertRecordInHashMap(&table,&sugar.key,&sugar.value));
+        it = Get_hashMap_keys(&table);
+        ASSERT(1 == *(int*)it.next(&it));
+        ASSERT(2 == *(int*)it.next(&it));
+        ASSERT(3 == *(int*)it.next(&it));
 }
