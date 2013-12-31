@@ -119,4 +119,5 @@ void test_for_not_search_element_in_the_tree_when_its_not_present(){
         ASSERT(search(&tree,&node_data[2]));
         ASSERT(search(&tree,&node_data[1]));
         ASSERT(0 == search(&tree,&node_data[5]));
+        disposeTree(&tree);
 }

@@ -12,3 +12,4 @@ int insert_node(Tree* tree, void* parentData, void* data);
 Iterator get_children(Tree* tree, void* parentData);
 int deleteNodeFromTree(Tree* tree, void* data);
 int search(Tree* tree, void* data);
+void disposeTree(Tree *tree);
