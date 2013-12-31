@@ -110,11 +110,21 @@ void* next_list(Iterator *it){
         it->position++;
         return temp->data;
 }
-Iterator getIterator(DLL *dList){
+Iterator getIterator_forList(DLL *dList){
         Iterator listIterator;
         listIterator.list = dList;
         listIterator.position = 0;
         listIterator.hasNext = &hasNext_list;
         listIterator.next = &next_list;
         return listIterator;
+}
+void* DLL_data(DLL List, void *element_for_search, compare_for_list cmp){
+        Node *nodeToCompare;
+        if(List.head == '\0')
+                return '\0';
+        for (nodeToCompare = List.head;nodeToCompare != NULL;nodeToCompare = nodeToCompare->next){
+                if(cmp(element_for_search,nodeToCompare->data))
+                        return nodeToCompare->data;
+        }
+        return NULL;
 }

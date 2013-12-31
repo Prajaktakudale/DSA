@@ -120,3 +120,34 @@ void test_for_find_node_by_using_index(){
         insert_new_node(list,2,&num3);
         ASSERT(2 == traverse(list,&num3));
 }
+typedef struct{
+        int stud_id;
+        int marks;
+} Student;
+
+int cmp(void *elementToCompare,void *element){
+        Student studToCompare = *(Student*)elementToCompare;
+        Student student = *(Student*)element;
+        return studToCompare.stud_id == student.stud_id;
+}
+
+void test_search_data_in_list_should_give_found_element(){
+        DLL* dList = create_link_list();
+        Student stud1 = {1,88},stud2 = {2,99},expected;
+        insert_new_node(dList, 0, &stud1);
+        insert_new_node(dList, 1, &stud2);
+        expected = *(Student*)DLL_data(*dList,&stud2,cmp);
+        ASSERT(stud2.stud_id == expected.stud_id);
+        ASSERT(stud2.marks == expected.marks);
+}
+// void test_search_data_should_give_NULL_if_data_not_found(){
+//         DLL* dList = create_link_list();
+//         Student stud1 = {5,45},stud2 = {9,56},stud3 = {65,89};
+//         Student searchElement = {0,0};
+//         void *expected = NULL;
+//         insert_new_node(&dList, 0, &stud1);
+//         insert_new_node(&dList, 1, &stud2);
+//         insert_new_node(&dList, 2, &stud3);
+//         expected = dList_getData(dList, &searchElement, cmp);
+//         ASSERT(NULL == expected);
+// }
