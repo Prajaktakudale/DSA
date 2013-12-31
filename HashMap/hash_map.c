@@ -54,3 +54,39 @@ void* GetHashMapWithBuckets(HashMap *table,void *key){
          return record->value;
      return record;
 };
+
+int Remove_record_from_hashmap(HashMap* table, void* key){
+    int bucket_No;
+    int i = 0;
+    DLL *list_as_bucket;
+    Iterator it;
+    Record *record;
+    int initial_no_of_buckets = 10;
+    bucket_No = (table->hashFunc(key)) % initial_no_of_buckets;
+    list_as_bucket = (DLL*)get(table->buckets,bucket_No);
+    it = getIterator_forList(list_as_bucket);
+    while(it.hasNext(&it)){
+            record = it.next(&it);
+            if(table->cmp(record->key,key) == 0)
+                     break;        
+            i++;
+    }
+    if(i == list_as_bucket->size)
+            return 0;
+    return delete_node(list_as_bucket, i);
+};
+
+Iterator HashMap_keys(HashMap *map){
+    Iterator Arrayiterator = getIteratorForArray(map->buckets);
+    Iterator listIterator;
+    Record hash_node;
+    DLL *dList = malloc(sizeof(DLL));
+    while(Arrayiterator.hasNext(&Arrayiterator)){
+            listIterator = getIterator_forList(Arrayiterator.next(&Arrayiterator));
+            while(listIterator.hasNext(&listIterator)){
+                    hash_node = *(Record*)listIterator.next(&listIterator);
+                    insert_new_node(dList, dList->size, hash_node.key);
+            }
+    }
+    return getIterator_forList(dList);
+};

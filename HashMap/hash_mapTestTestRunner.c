@@ -49,31 +49,6 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_for_add_new_record_into_hashMap");
-	setup();
-		test_for_add_new_record_into_hashMap();
-	tearDown();
-	testEnded();
-	testStarted("test_for_add_more_records_into_hashMap");
-	setup();
-		test_for_add_more_records_into_hashMap();
-	tearDown();
-	testEnded();
-	testStarted("test_for_get_record_from_hashmap");
-	setup();
-		test_for_get_record_from_hashmap();
-	tearDown();
-	testEnded();
-	testStarted("test_for_remove_record_from_hashmap_by_cheking_key");
-	setup();
-		test_for_remove_record_from_hashmap_by_cheking_key();
-	tearDown();
-	testEnded();
-	testStarted("test_for_remove_record_from_hashmap_when_record_is_not_present");
-	setup();
-		test_for_remove_record_from_hashmap_when_record_is_not_present();
-	tearDown();
-	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

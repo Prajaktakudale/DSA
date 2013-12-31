@@ -19,22 +19,34 @@ Item sugar = {2,"sugar"};
 Item salt = {3,"salt"};
 
 void test_for_add_new_record_into_hashMap(){
-    HashMap map = createHashMap(hashFun,compare_key);
-    ASSERT(InsertRecordInHashMap(&map,&sugar.key,&sugar.value));
+    HashMap record = createHashMap(hashFun,compare_key);
+    ASSERT(InsertRecordInHashMap(&record,&sugar.key,&sugar.value));
     ASSERT(0 == strcmp(sugar.value,
-          (char*)GetHashMapWithBuckets(&map,&sugar.key)));
+          (char*)GetHashMapWithBuckets(&record,&sugar.key)));
 }
 void test_for_add_more_records_into_hashMap(){
-    HashMap map = createHashMap(hashFun,compare_key);
-    ASSERT(InsertRecordInHashMap(&map,&sugar.key,&sugar.value));
-    ASSERT(InsertRecordInHashMap(&map,&rice.key,&rice.value));
+    HashMap record = createHashMap(hashFun,compare_key);
+    ASSERT(InsertRecordInHashMap(&record,&sugar.key,&sugar.value));
+    ASSERT(InsertRecordInHashMap(&record,&rice.key,&rice.value));
     ASSERT(0 == strcmp(sugar.value,
-          (char*)GetHashMapWithBuckets(&map,&sugar.key)));
+          (char*)GetHashMapWithBuckets(&record,&sugar.key)));
     ASSERT(0 == strcmp(rice.value,
-          (char*)GetHashMapWithBuckets(&map,&rice.key)));
+          (char*)GetHashMapWithBuckets(&record,&rice.key)));
 }
 void test_for_get_record_from_hashmap(){
-    HashMap map = createHashMap(hashFun,compare_key);
-    ASSERT(NULL == GetHashMapWithBuckets(&map,&sugar.key));
+    HashMap record = createHashMap(hashFun,compare_key);
+    ASSERT(NULL == GetHashMapWithBuckets(&record,&sugar.key));
 }
-
+void test_for_remove_record_from_hashmap_by_cheking_key(){
+        HashMap record = createHashMap(hashFun, compare_key);
+        ASSERT(InsertRecordInHashMap(&record, &sugar.key, &sugar.value));
+        ASSERT(InsertRecordInHashMap(&record, &salt.key, &salt.value));
+        ASSERT(1 == Remove_record_from_hashmap(&record, &sugar.key));
+        ASSERT(1 == Remove_record_from_hashmap(&record, &salt.key));
+        ASSERT(NULL == GetHashMapWithBuckets(&record, &sugar.key));
+}
+void test_for_remove_record_from_hashmap_when_record_is_not_present(){
+        HashMap record = createHashMap(hashFun, compare_key);
+        ASSERT(InsertRecordInHashMap(&record, &sugar.key, &sugar.value));
+        ASSERT(0 == Remove_record_from_hashmap(&record, &rice.key));
+}

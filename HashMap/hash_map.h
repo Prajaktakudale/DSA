@@ -12,5 +12,5 @@ typedef struct {
 HashMap createHashMap(hash hashFunc,comparefunc compare);
 int InsertRecordInHashMap(HashMap* table,void* key,void* value);
 void* GetHashMapWithBuckets(HashMap* table, void* key);
-int HashMap_remove(HashMap* map, void* key);
+int Remove_record_from_hashmap(HashMap* map, void* key);
 Iterator HashMap_keys(HashMap* map);
