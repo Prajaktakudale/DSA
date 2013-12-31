@@ -82,7 +82,7 @@ void* getNextData(Iterator* it){
         if(!hasNext(it)) return NULL;
         return list->base[it->position++];
 }
-Iterator getIterator(ArrayList* list){
+Iterator getIteratorForArray(ArrayList* list){
         Iterator it;
         it.list = list;
         it.position = 0;

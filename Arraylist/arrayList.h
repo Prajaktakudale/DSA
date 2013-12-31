@@ -15,6 +15,6 @@ void dispose(ArrayList *list);
 int search(ArrayList *list, void *data);
 int add(ArrayList *list,void *data);
 void* remove_element(ArrayList *list,int index);
-Iterator getIterator(ArrayList* list);
+Iterator getIteratorForArray(ArrayList* list);
 void dispose(ArrayList *list);
 void iterate(ArrayList list, ForEach* forEach);

@@ -88,19 +88,19 @@ void test_should_not_search_element_in_list(){
 void test_iterator_gives_true_when_next_data_is_present(){
         Iterator it;
         insert(internsPtr, 0, &prateek);
-        it = getIterator(internsPtr);
+        it = getIteratorForArray(internsPtr);
         ASSERT(1 == it.hasNext(&it));
 }
 void test_iterator_gives_false_when_next_data_is_not_present(){
         Iterator it;
-        it = getIterator(internsPtr);
+        it = getIteratorForArray(internsPtr);
         ASSERT(0 == it.hasNext(&it));
 }
 void test_iterator_gives_the_data_of_next_index(){
         Iterator it;
         insert(internsPtr, 0, &Prajakta);
         insert(internsPtr, 0, &prateek);
-        it = getIterator(internsPtr);
+        it = getIteratorForArray(internsPtr);
         ASSERT(&prateek == it.next(&it));
         ASSERT(&Prajakta == it.next(&it));
         ASSERT(NULL == it.next(&it));
