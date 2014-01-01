@@ -128,3 +128,12 @@ void* DLL_data(DLL List, void *element_for_search, compare_for_list cmp){
         }
         return NULL;
 }
+void dispose_list(DLL List){
+        Node *temp;
+        if(List.head == NULL)
+                return;
+        temp = List.head;
+        List.head = temp->next;
+        free(temp);
+        dispose_list(List);
+}
