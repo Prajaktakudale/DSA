@@ -79,6 +79,16 @@ int main(){
 		test_for_getting_all_keys_in_hash_map();
 	tearDown();
 	testEnded();
+	testStarted("test_for_iterating_when_no_records_are_present");
+	setup();
+		test_for_iterating_when_no_records_are_present();
+	tearDown();
+	testEnded();
+	testStarted("test_for_rehashing_no_of_buckets");
+	setup();
+		test_for_rehashing_no_of_buckets();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

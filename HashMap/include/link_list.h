@@ -17,3 +17,4 @@ int delete_node(DLL* List,int index);
 void* DLL_data(DLL List, void *searchElement, compare_for_list cmp);
 int traverse(DLL* List,void *element);
 Iterator getIterator_forList(DLL *dList);
+void dispose_list(DLL List);

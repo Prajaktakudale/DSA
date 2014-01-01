@@ -8,19 +8,41 @@ void createListAsBucket(void *bucket){
 	bucket = list;
 };
 
-HashMap createHashMap(hash hashFunc,comparefunc compare){
+HashMap createHashMap(hash hashFunc,comparefunc compare,int no_of_buckets){
     HashMap table;
     int i;
-    int initial_no_of_buckets = 10;
-    ArrayList buckets = create(initial_no_of_buckets);
+    ArrayList buckets = create(no_of_buckets);
     table.buckets = calloc(1,sizeof(ArrayList));
     *(ArrayList*)table.buckets = buckets;
     table.hashFunc = hashFunc;
     table.cmp = compare;
-    for(i = 0;i < initial_no_of_buckets;i++)
+    table.no_of_buckets = no_of_buckets;
+    for(i = 0;i < no_of_buckets;i++)
         add(table.buckets, calloc(1,sizeof(DLL)));
     	iterate(*(ArrayList*)table.buckets,createListAsBucket);
     return table;
+};
+
+void rehash(HashMap* table){
+    void *key,*value;
+    int no_of_buckets;
+    int double_size = 2;
+    int resize_bucket_no = table->no_of_buckets * double_size;
+    
+    Iterator Keys = Get_hashMap_keys(table);
+    for(no_of_buckets = table->no_of_buckets;no_of_buckets < resize_bucket_no;no_of_buckets++)
+    {
+        add(table->buckets,calloc(1,sizeof(DLL)));
+        iterate(*(ArrayList*)table->buckets,createListAsBucket);
+    }
+    table->no_of_buckets = resize_bucket_no;
+    while(Keys.hasNext(&Keys))
+    {
+        key = Keys.next(&Keys);
+        value = GetHashMapWithBuckets(table,key);
+        Remove_record_from_hashmap(table,key);
+        InsertRecordInHashMap(table,key,value);
+    }
 };
 
 Record* CreateRecordInHashMap(void *key,void *value){
@@ -54,7 +76,6 @@ void* GetHashMapWithBuckets(HashMap *table,void *key){
          return record->value;
      return record;
 };
-
 
 int Remove_record_from_hashmap(HashMap* table,void* key){
     int bucket_No;
@@ -93,4 +114,15 @@ Iterator Get_hashMap_keys(HashMap *table){
             }
     }
     return getIterator_forList(list);
+};
+
+void dispose_hash_map(HashMap *table){
+        int i;
+        DLL *list_as_bucket;
+        Iterator it;
+        for(i=0;i<table->no_of_buckets;i++){
+                list_as_bucket = (DLL*)get(table->buckets,i);
+                dispose_list(*list_as_bucket);
+        };
+        free(table->buckets);
 };
