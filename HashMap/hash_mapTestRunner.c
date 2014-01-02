@@ -64,6 +64,11 @@ int main(){
 		test_for_get_record_from_hashmap();
 	tearDown();
 	testEnded();
+	testStarted("test_for_get_record_from_hashMap_which_is_not_present");
+	setup();
+		test_for_get_record_from_hashMap_which_is_not_present();
+	tearDown();
+	testEnded();
 	testStarted("test_for_remove_record_from_hashmap_by_cheking_key");
 	setup();
 		test_for_remove_record_from_hashmap_by_cheking_key();

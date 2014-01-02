@@ -117,12 +117,12 @@ Iterator Get_hashMap_keys(HashMap *table){
 };
 
 void dispose_hash_map(HashMap *table){
-        int i;
+        int index;
         DLL *list_as_bucket;
         Iterator it;
-        for(i=0;i<table->no_of_buckets;i++){
-                list_as_bucket = (DLL*)get(table->buckets,i);
+        for(index=0;index<table->no_of_buckets;index++){
+                list_as_bucket = (DLL*)get(table->buckets,index);
                 dispose_list(*list_as_bucket);
-        };
+        }
         free(table->buckets);
 };
